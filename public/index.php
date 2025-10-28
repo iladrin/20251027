@@ -27,3 +27,4 @@ if (!array_key_exists($page, $routes)) {
 
 // Appel du controller pour traiter la page web demandée
 require CONTROLLERS_DIR . '/' . $routes[$page];
+run();

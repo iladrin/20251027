@@ -22,4 +22,11 @@ return [
         'roles' => ['ROLE_USER'],
         'creation_date' => '2025-10-27'
     ],
+    [
+        'id' => 4,
+        'username' => 'amina',
+        'password' => 'amina',
+        'roles' => ['ROLE_USER'],
+        'creation_date' => '2025-10-28'
+    ],
 ];
