@@ -1,7 +1,7 @@
 <?php
 
 // Chargement des utilisateurs
-$users = require 'users.php';
+$users = require MODELS_DIR . '/users.php';
 
 // Affichage de la liste des utilisateurs
-require 'users/list.html.php';
+require VIEWS_DIR . '/users/list.html.php';

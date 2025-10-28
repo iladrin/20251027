@@ -12,5 +12,8 @@
   <li>Nom d’utilisateur : <?php echo $user['username']; ?></li>
 </ul>
 
+<div>
+  <a href="?page=users">Retour à la liste des utilisateurs</a>
+</div>
 </body>
 </html>
