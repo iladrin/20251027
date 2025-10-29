@@ -10,7 +10,8 @@ function run(): void
         $user = findUserByUsername($_POST['username']);
 
         if ($user !== null) { // Si l'utilisateur existe
-            if ($user['password'] === $_POST['password']) { // Si son mot de passe est correct
+
+            if (password_verify($_POST['password'], $user['password'])) { // Si son mot de passe est correct
                 $_SESSION['user'] = $user; // On enregistre l'utilisateur dans la session 🥳🍾
 
                 // Redirection vers la page d'accueil
