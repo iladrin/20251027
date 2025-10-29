@@ -1,13 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Oups</title>
-</head>
-<body>
-    <h1>Oups</h1>
+<?php require VIEWS_DIR . '/_partials/_header.html.php'; ?>
 
-    <p><?php echo $error ?></p>
-</body>
-</html>
+<h1>Oups</h1>
+
+<p><?php echo $error ?></p>
+
+<?php require VIEWS_DIR . '/_partials/_footer.html.php'; ?>

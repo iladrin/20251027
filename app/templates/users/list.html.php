@@ -1,11 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Liste des utilisateurs</title>
-</head>
-<body>
+<?php require VIEWS_DIR . '/_partials/_header.html.php'; ?>
+
 <h1>Liste des utilisateurs</h1>
 
 <ul>
@@ -16,5 +10,4 @@
     ?>
 </ul>
 
-</body>
-</html>
+<?php require VIEWS_DIR . '/_partials/_footer.html.php'; ?>
