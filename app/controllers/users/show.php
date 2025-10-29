@@ -17,12 +17,7 @@ function run(): void
     }
 
     // 3. On recherche l’utilisateur par son username
-    foreach ($users as $item) {
-        if ($item['username'] === $username) {
-            $user = $item;
-            break;  // On arrête le foreach, l’utilisateur est trouvé
-        }
-    }
+    $user = findUserByUsername($username);
 
     // 4. On affiche une erreur au cas où :p
     if (!isset($user)) {

@@ -43,3 +43,16 @@ function getUsersSortedByUsername(): array
 
     return $users;
 }
+
+function findUserByUsername(string $username): ?array
+{
+    $users = getUsers();
+
+    foreach ($users as $item) {
+        if ($item['username'] === $username) {
+            return $item;
+        }
+    }
+
+    return null;
+}
