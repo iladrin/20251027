@@ -6,5 +6,6 @@ return [
 
     'user_profile' => 'users/show.php',
     'login' => 'security/login.php',
+    'logout' => 'security/logout.php',
     'homepage' => 'homepage.php',
 ];

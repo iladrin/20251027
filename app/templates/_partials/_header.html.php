@@ -26,7 +26,13 @@
                 </li>
             </ul>
             <div class="d-flex">
-                <a role="button" data-bs-toggle="button" class="btn btn-secondary" href="?page=login">Connexion</a>
+              <?php
+                  if (isset($_SESSION['user'])) {
+                      echo '<a role="button" data-bs-toggle="button" class="btn btn-secondary" href="?page=logout">Déconnexion</a>';
+                  } else {
+                      echo '<a role="button" data-bs-toggle="button" class="btn btn-secondary" href="?page=login">Connexion</a>';
+                  }
+              ?>
             </div>
         </div>
     </div>

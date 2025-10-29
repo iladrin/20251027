@@ -11,7 +11,7 @@ function run(): void
 
         if ($user !== null) { // Si l'utilisateur existe
             if ($user['password'] === $_POST['password']) { // Si son mot de passe est correct
-                // On enregistre l'utilisateur dans la session 🥳🍾
+                $_SESSION['user'] = $user; // On enregistre l'utilisateur dans la session 🥳🍾
 
                 // Redirection vers la page d'accueil
                 header('Location: ?page=homepage');

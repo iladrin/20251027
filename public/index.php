@@ -1,5 +1,8 @@
 <?php
 
+// On initialise une session stockée sur le serveur pour conserver l'authentification de l'utilisateur de page en page
+session_start();
+
 // Chargement des librairies PHP du projet
 require '../vendor/autoload.php';
 
