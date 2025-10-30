@@ -27,7 +27,7 @@
             </ul>
             <div class="d-flex">
               <?php
-                  if (isset($_SESSION['user'])) {
+                  if (isUserAuthenticated()) {
                       echo '<a role="button" data-bs-toggle="button" class="btn btn-secondary" href="?page=logout">Déconnexion</a>';
                   } else {
                       echo '<a role="button" data-bs-toggle="button" class="btn btn-secondary" href="?page=login">Connexion</a>';

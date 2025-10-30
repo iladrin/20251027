@@ -16,6 +16,7 @@ const CONFIG_DIR = PROJECT_DIR . '/config';
 
 // Chargement des helpers
 require APP_DIR . '/helpers/logger.php';
+require APP_DIR . '/helpers/security.php';
 
 // Par exemple: ?page=user_profile
 $page = $_GET['page'] ?? 'homepage';
