@@ -2,6 +2,6 @@
 
 <h1>Oups</h1>
 
-<p><?php echo $error ?></p>
+<p><?php echo $error; ?></p>
 
 <?php require VIEWS_DIR . '/_partials/_footer.html.php'; ?>

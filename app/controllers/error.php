@@ -1,6 +1,6 @@
 <?php
 
-function run(): void
+function run(string $error): void
 {
     require_once VIEWS_DIR . '/error.php';
 }

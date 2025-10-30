@@ -31,9 +31,24 @@ if (!array_key_exists($page, $routes)) {
     logMessage($error, LOG_LEVEL_CRITICAL);
     logCriticalMessage($error);
     require CONTROLLERS_DIR . '/error.php';
+    run($error);
     die();
 }
 
 // Appel du controller pour traiter la page web demandée
-require CONTROLLERS_DIR . '/' . $routes[$page];
+$controller = is_array($routes[$page]) ? $routes[$page]['controller'] : $routes[$page];
+
+// Si la route a un index 'security', il faut vérifier le rôle de l'utilisateur pour l’accès au controller
+if (is_array($routes[$page]) && isset($routes[$page]['security'])) {
+    if (!userHasRole($routes[$page]['security'])) {
+        $error = "Que faites-vous ici ? 😅";
+
+        logCriticalMessage($error);
+        require CONTROLLERS_DIR . '/error.php';
+        run($error);
+        die();
+    }
+}
+
+require CONTROLLERS_DIR . '/' . $controller;
 run();
