@@ -41,12 +41,21 @@ $controller = is_array($routes[$page]) ? $routes[$page]['controller'] : $routes[
 // Si la route a un index 'security', il faut vérifier le rôle de l'utilisateur pour l’accès au controller
 if (is_array($routes[$page]) && isset($routes[$page]['security'])) {
     if (!userHasRole($routes[$page]['security'])) {
-        $error = "Que faites-vous ici ? 😅";
 
-        logCriticalMessage($error);
-        require CONTROLLERS_DIR . '/error.php';
-        run($error);
-        die();
+        // Si l'utilisateur n'est pas autorisé en accès, mais qu'en fait… il n'est pas authentifié !
+        // Alors on le redirige vers la page de connexion
+        // Et on le ramènera vers la page qu'il voulait initialement
+        if (!isUserAuthenticated()) {
+            $_SESSION['referrer'] = $page;      // On mémorise la page que l'utilisateur voulait
+            header('Location: ?page=login');    // On l'amène vers la page de connexion
+        } else {
+            $error = "Que faites-vous ici ? 😅";
+
+            logCriticalMessage($error);
+            require CONTROLLERS_DIR . '/error.php';
+            run($error);
+            die();
+        }
     }
 }
 

@@ -14,8 +14,13 @@ function run(): void
             if (password_verify($_POST['password'], $user['password'])) { // Si son mot de passe est correct
                 $_SESSION['user'] = $user; // On enregistre l'utilisateur dans la session 🥳🍾
 
-                // Redirection vers la page d'accueil
-                header('Location: ?page=homepage');
+                // Redirection vers la page d'accueil OU la page que voulait l'utilisateur avant de se connecter
+                if (isset($_SESSION['referrer'])) {
+                    header('Location: ?page=' . $_SESSION['referrer']);
+                    unset($_SESSION['referrer']);
+                } else {
+                    header('Location: ?page=homepage');
+                }
                 die();
             }
         }
