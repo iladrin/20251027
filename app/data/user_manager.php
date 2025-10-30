@@ -2,7 +2,7 @@
 
 function getUsers(): array
 {
-    return getUsersFromCSV();
+    return getUsersFromDatabase();
 }
 
 // Stratégie 1 : Tableau PHP
@@ -28,6 +28,34 @@ function getUsersFromCSV(): array
 
         $users[] = $user;
     }
+    return $users;
+}
+
+function getUsersFromDatabase(): array
+{
+    $db = getConnection();
+
+    // Utilisation d'une requête préparée : requête en 2 temps
+    $stmt = $db->prepare('SELECT * FROM user');
+    $stmt->execute();
+
+    // Récupération des résultats
+    $usersData = $stmt->fetchAll();
+
+    // Hydratation comme vu précédemment dans getUsersFromCSV
+    $users = [];
+    foreach ($usersData as $userData) {
+        $user = [
+            'id' => (int) $userData['id'],
+            'username' => $userData['username'],
+            'password' => $userData['password'],
+            'roles' => explode(',', $userData['roles']),
+            'creation_date' => $userData['creation_date'],
+        ];
+
+        $users[] = $user;
+    }
+
     return $users;
 }
 
